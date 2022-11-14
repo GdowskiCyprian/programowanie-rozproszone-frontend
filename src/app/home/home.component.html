@@ -1,1 +1,43 @@
-<p>home works!</p>
+<mat-toolbar color="primary">
+    <span>Programowanie Rozproszone</span>
+      <span class="example-spacer"></span>
+      <form>
+        <mat-form-field>
+            <mat-select [(ngModel)]="client" name = "client">
+                <mat-option *ngFor="let client of clients" [value]="client">
+                    {{client.clientName}}
+                </mat-option>
+              </mat-select>
+          </mat-form-field>
+      </form>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with basket icon" (click)="OpenBasket()">
+        <mat-icon>shopping_basket</mat-icon>
+      </button>
+</mat-toolbar>
+<mat-card style="width: 600px; margin-left: auto; margin-right: auto; margin-top: 20px;">
+    <mat-card-header>
+        <mat-card-title>
+            Products
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <table mat-table [dataSource] = "products" style="width: 100%; text-align: left;" >
+            <ng-container matColumnDef="productName" class="table-item">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let product" style="width: 33%;"> {{product.productName}} </td>
+              </ng-container>
+              <ng-container matColumnDef="productPrice" class="table-item">
+                <th mat-header-cell *matHeaderCellDef> Price </th>
+                <td mat-cell *matCellDef="let product" style="width: 33%;"> {{product.productPrice}} </td>
+              </ng-container>
+              <ng-container matColumnDef="productAdd" class="table-item" style="width: 100px;">
+                <th mat-header-cell *matHeaderCellDef> Add to Basket </th>
+                <td mat-cell *matCellDef="let product">
+                  <button mat-button class="primary" color="accent" (click)="AddProductToBasket(product)" style="width: 33%;">Add</button>
+                </td>
+              </ng-container>
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplayProducts"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsToDisplayProducts;"></tr>
+          </table>
+    </mat-card-content>
+</mat-card>

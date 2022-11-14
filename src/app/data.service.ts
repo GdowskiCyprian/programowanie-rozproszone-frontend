@@ -19,3 +19,19 @@ export class DataService {
     return this.http.get(this.baseUrl+"Product");
   }
 }
+export interface Order{
+  orderId:number;
+  orderDate: string;
+  client:Client;
+  products:Product[];
+}
+export interface Client{
+  clientId:number;
+  clientName:string;
+  clientAddress:string
+}
+export interface Product{
+  productId: number;
+  productName:string;
+  productPrice: number;
+}

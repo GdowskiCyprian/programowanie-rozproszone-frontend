@@ -24,6 +24,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatPaginatorModule} from "@angular/material/paginator";
 import { BasketComponent } from './basket/basket.component';
 import { HomeComponent } from './home/home.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FormsModule,ReactiveFormsModule} from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -53,7 +56,10 @@ import { HomeComponent } from './home/home.component';
     MatFormFieldModule,
     MatSortModule,
     MatSnackBarModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatToolbarModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
