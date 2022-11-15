@@ -24,6 +24,9 @@ export class BasketComponent implements OnInit {
     this.order.client = this.client
     this.order.products = this.products
     console.log(this.order)
+    let resp = this.service.postOrder(this.order);
+    resp.subscribe(data => console.log(data));
+
   }
 
 }

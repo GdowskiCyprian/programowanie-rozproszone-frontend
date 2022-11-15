@@ -11,12 +11,24 @@ export class DataService {
   baseUrl:string = 'http://localhost:5254/';
 
   public getClients(){
-    const headers = new HttpHeaders({ 'Content-Type':'application/json' });
+
     return this.http.get(this.baseUrl+"Client");
   }
   public getProducts(){
-    const headers = new HttpHeaders({ 'Content-Type':'application/json' });
+
     return this.http.get(this.baseUrl+"Product");
+  }
+  public getOrders(){
+
+    return this.http.get(this.baseUrl+"Order");
+  }
+  public postOrder(order:Order){
+
+    return this.http.post(this.baseUrl+"Order", order)
+  }
+  public deleteOrder(orderId:number){
+
+    this.http.delete(this.baseUrl+"Order"+"?OrderId="+orderId)
   }
 }
 export interface Order{
