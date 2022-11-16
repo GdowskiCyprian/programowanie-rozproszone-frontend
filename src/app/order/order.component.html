@@ -1,0 +1,41 @@
+<mat-toolbar color="primary">
+    <span>Programowanie Rozproszone</span>
+    <button mat-button routerLink="/" target="_blank">Home</button>
+    <button mat-button routerLink="/orders" target="_blank">Orders</button>
+      <span class="example-spacer"></span>
+</mat-toolbar>
+<mat-card style="width: 600px; margin-left: auto; margin-right: auto; margin-top: 20px;">
+    <mat-card-header>
+        <mat-card-title>
+            Orders
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <table mat-table [dataSource] = "orders" style="width: 100%; text-align: left;" >
+            <ng-container matColumnDef="orderId" class="table-item">
+                <th mat-header-cell *matHeaderCellDef> Id </th>
+                <td mat-cell *matCellDef="let order" style="width: 20%;"> {{order.orderId}} </td>
+              </ng-container>
+              <ng-container matColumnDef="orderDate" class="table-item">
+                <th mat-header-cell *matHeaderCellDef> Date </th>
+                <td mat-cell *matCellDef="let order" style="width: 20%;"> {{order.orderDate}} </td>
+              </ng-container>
+              <ng-container matColumnDef="clientName" class="table-item">
+                <th mat-header-cell *matHeaderCellDef> ClientName </th>
+                <td mat-cell *matCellDef="let order" style="width: 20%;"> {{order.client.clientName}} </td>
+              </ng-container>
+              <ng-container matColumnDef="numofprod" class="table-item">
+                <th mat-header-cell *matHeaderCellDef> Quantity </th>
+                <td mat-cell *matCellDef="let order" style="width: 20%;"> {{order.products.length}} </td>
+              </ng-container>
+              <ng-container matColumnDef="orderDelete" class="table-item" style="width: 100px;">
+                <th mat-header-cell *matHeaderCellDef> Delete </th>
+                <td mat-cell *matCellDef="let order">
+                  <button mat-button class="primary" color="accent" (click)="DeleteOrder(order.orderId)" style="width: 20%;">Delete</button>
+                </td>
+              </ng-container>
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplayOrders"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsToDisplayOrders"></tr>
+        </table>
+    </mat-card-content>
+</mat-card>

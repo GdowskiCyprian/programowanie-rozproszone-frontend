@@ -27,8 +27,9 @@ export class DataService {
     return this.http.post(this.baseUrl+"Order", order)
   }
   public deleteOrder(orderId:number){
-
-    this.http.delete(this.baseUrl+"Order"+"?OrderId="+orderId)
+    console.log(this.baseUrl+"Order"+"?OrderId="+orderId);
+    let resp = this.http.delete(this.baseUrl+"Order"+"?OrderId="+orderId)
+    resp.subscribe(data => {console.log(data)})
   }
 }
 export interface Order{

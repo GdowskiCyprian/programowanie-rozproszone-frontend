@@ -26,13 +26,15 @@ import { BasketComponent } from './basket/basket.component';
 import { HomeComponent } from './home/home.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { OrderComponent } from './order/order.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     BasketComponent,
-    HomeComponent
+    HomeComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
